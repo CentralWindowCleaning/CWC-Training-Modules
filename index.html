@@ -3,78 +3,213 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CWC Training Modules</title>
+<title>CWC Training Modules - Central Window Cleaning</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+
 * { margin: 0; padding: 0; box-sizing: border-box; }
+
 body {
   font-family: 'Inter', sans-serif;
   background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #F5802B 100%);
   min-height: 100vh;
   padding: 40px 20px;
 }
-.container { max-width: 1200px; margin: 0 auto; }
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 .header {
-  text-align: center; margin-bottom: 60px; background: white;
-  padding: 40px; border-radius: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+  text-align: center;
+  margin-bottom: 60px;
+  background: white;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
 }
-.header h1 { color: #1a1a1a; font-size: 2.2rem; font-weight: 800; margin-bottom: 8px; }
-.header p { color: #666; font-size: 1.1rem; }
+
+.logo {
+  width: 280px;
+  max-width: 90%;
+  margin-bottom: 20px;
+}
+
+.header h1 {
+  color: #1a1a1a;
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.header p {
+  color: #666;
+  font-size: 1.1rem;
+}
+
 .modules-grid {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 24px; margin-bottom: 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+  margin-bottom: 40px;
 }
+
 .module-card {
-  background: white; border-radius: 16px; padding: 32px;
+  background: white;
+  border-radius: 16px;
+  padding: 32px;
   box-shadow: 0 4px 24px rgba(0,0,0,0.15);
-  transition: transform 0.2s; cursor: pointer;
-  text-decoration: none; color: inherit; display: block;
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  display: block;
   border: 3px solid transparent;
 }
+
 .module-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 8px 32px rgba(245,128,43,0.3);
   border-color: #F5802B;
 }
-.module-card.active { border-color: #F5802B; }
-.module-card.coming-soon { opacity: 0.6; cursor: not-allowed; background: #f5f5f5; }
-.module-icon { font-size: 3rem; margin-bottom: 16px; }
-.module-title { font-size: 1.5rem; font-weight: 700; color: #1a1a1a; margin-bottom: 8px; }
-.module-desc { color: #666; font-size: 0.95rem; line-height: 1.6; margin-bottom: 16px; }
-.module-meta { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; }
+
+.module-card.active {
+  border-color: #F5802B;
+}
+
+.module-card.coming-soon {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background: #f5f5f5;
+}
+
+.module-card.coming-soon:hover {
+  transform: none;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+  border-color: transparent;
+}
+
+.module-icon {
+  font-size: 3rem;
+  margin-bottom: 16px;
+}
+
+.module-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 8px;
+}
+
+.module-desc {
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.module-meta {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
 .badge {
-  display: inline-flex; align-items: center; gap: 6px;
-  padding: 6px 14px; border-radius: 20px;
-  font-size: 0.8rem; font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
 }
-.badge.time { background: #FEF0E6; color: #C85E10; }
-.badge.modules { background: #e8f2fd; color: #0e4a8a; }
-.badge.quizzes { background: #dcfce7; color: #166534; }
-.badge.coming { background: #f5f5f5; color: #999; }
+
+.badge.time {
+  background: #FEF0E6;
+  color: #C85E10;
+}
+
+.badge.modules {
+  background: #e8f2fd;
+  color: #0e4a8a;
+}
+
+.badge.quizzes {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.badge.coming {
+  background: #f5f5f5;
+  color: #999;
+}
+
 .btn {
-  display: inline-block; background: linear-gradient(90deg, #1a1a1a, #F5802B);
-  color: white; padding: 14px 28px; border-radius: 8px;
-  font-weight: 700; text-decoration: none;
+  display: inline-block;
+  background: linear-gradient(90deg, #1a1a1a, #F5802B);
+  color: white;
+  padding: 14px 28px;
+  border-radius: 8px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: opacity 0.2s;
 }
-.btn.disabled { background: #ccc; cursor: not-allowed; pointer-events: none; }
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+.btn.disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
 .footer {
-  text-align: center; margin-top: 60px; padding: 24px;
-  background: rgba(255,255,255,0.1); border-radius: 12px; color: white;
+  text-align: center;
+  margin-top: 60px;
+  padding: 24px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 12px;
+  color: white;
 }
-.footer a { color: #F5802B; text-decoration: none; font-weight: 600; }
+
+.footer a {
+  color: #F5802B;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+@media (max-width: 640px) {
+  .modules-grid {
+    grid-template-columns: 1fr;
+  }
+  .header h1 {
+    font-size: 1.8rem;
+  }
+}
 </style>
 </head>
 <body>
+
 <div class="container">
+  
   <div class="header">
     <h1>🪟 CWC Training Modules</h1>
-    <p>Central Window Cleaning • Professional Development Portal</p>
+    <p>Central Window Cleaning  •  Professional Development Portal</p>
   </div>
+
   <div class="modules-grid">
+    
+    <!-- Module 1: Day 1 Residential -->
     <a href="day1-residential.html" class="module-card active">
       <div class="module-icon">🏠</div>
       <div class="module-title">Day 1 Residential Training</div>
-      <div class="module-desc">Complete interactive training covering safety, tools, exterior & interior cleaning processes, and customer service. Pass all 5 quizzes at 80%+ to earn field clearance.</div>
+      <div class="module-desc">
+        Complete interactive training covering safety, tools, exterior & interior cleaning processes, and customer service. Pass all 5 quizzes at 80%+ to earn field clearance.
+      </div>
       <div class="module-meta">
         <span class="badge time">⏱️ ~75 min</span>
         <span class="badge modules">📋 5 Modules</span>
@@ -82,24 +217,93 @@ body {
       </div>
       <span class="btn">Start Training →</span>
     </a>
+
+    <!-- Module 2: Power Washing (Coming Soon) -->
+    <div class="module-card coming-soon">
+      <div class="module-icon">🚿</div>
+      <div class="module-title">Power Washing Training</div>
+      <div class="module-desc">
+        Comprehensive power washing techniques, equipment operation, surface preparation, chemical handling, and safety protocols for residential and commercial properties.
+      </div>
+      <div class="module-meta">
+        <span class="badge coming">Coming Soon</span>
+      </div>
+      <span class="btn disabled">Coming Soon</span>
+    </div>
+
+    <!-- Module 3: Commercial Training (Coming Soon) -->
     <div class="module-card coming-soon">
       <div class="module-icon">🏢</div>
       <div class="module-title">Commercial Training</div>
-      <div class="module-desc">Learn commercial window cleaning techniques, high-traffic building protocols, and large-scale job management.</div>
-      <div class="module-meta"><span class="badge coming">Coming Soon</span></div>
+      <div class="module-desc">
+        Learn commercial window cleaning techniques, high-traffic building protocols, and large-scale job management.
+      </div>
+      <div class="module-meta">
+        <span class="badge coming">Coming Soon</span>
+      </div>
       <span class="btn disabled">Coming Soon</span>
     </div>
+
+    <!-- Module 4: High-Rise Certification (Coming Soon) -->
     <div class="module-card coming-soon">
       <div class="module-icon">🏗️</div>
       <div class="module-title">High-Rise Certification</div>
-      <div class="module-desc">Advanced training for high-rise buildings including rope access, swing stages, and specialized safety protocols.</div>
-      <div class="module-meta"><span class="badge coming">Coming Soon</span></div>
+      <div class="module-desc">
+        Advanced training for high-rise buildings including rope access, swing stages, and specialized safety protocols.
+      </div>
+      <div class="module-meta">
+        <span class="badge coming">Coming Soon</span>
+      </div>
       <span class="btn disabled">Coming Soon</span>
     </div>
+
+    <!-- Module 5: Safety Refresher (Coming Soon) -->
+    <div class="module-card coming-soon">
+      <div class="module-icon">⛑️</div>
+      <div class="module-title">Annual Safety Refresher</div>
+      <div class="module-desc">
+        Mandatory yearly recertification covering updated safety protocols, ladder inspection, and incident prevention.
+      </div>
+      <div class="module-meta">
+        <span class="badge coming">Coming Soon</span>
+      </div>
+      <span class="btn disabled">Coming Soon</span>
+    </div>
+
+    <!-- Module 6: Customer Service Excellence (Coming Soon) -->
+    <div class="module-card coming-soon">
+      <div class="module-icon">🤝</div>
+      <div class="module-title">Customer Service Excellence</div>
+      <div class="module-desc">
+        Advanced communication skills, conflict resolution, upselling techniques, and building long-term client relationships.
+      </div>
+      <div class="module-meta">
+        <span class="badge coming">Coming Soon</span>
+      </div>
+      <span class="btn disabled">Coming Soon</span>
+    </div>
+
+    <!-- Module 7: Specialized Techniques (Coming Soon) -->
+    <div class="module-card coming-soon">
+      <div class="module-icon">🔧</div>
+      <div class="module-title">Specialized Techniques</div>
+      <div class="module-desc">
+        Hard water stain removal, paint scraping, historic building care, and other advanced window cleaning methods.
+      </div>
+      <div class="module-meta">
+        <span class="badge coming">Coming Soon</span>
+      </div>
+      <span class="btn disabled">Coming Soon</span>
+    </div>
+
   </div>
+
   <div class="footer">
     <p><strong>Central Window Cleaning</strong> • Professional Training Portal</p>
+    <p style="margin-top:8px;font-size:0.9rem;opacity:0.8;">Questions? Contact your trainer or visit <a href="https://centralwindowcleaning.com">centralwindowcleaning.com</a></p>
   </div>
+
 </div>
+
 </body>
 </html>
